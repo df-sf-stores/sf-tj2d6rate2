@@ -1,7 +1,7 @@
 .hero {
   position: relative;
   overflow: hidden;
-  background: var(--deep);
+  background: var(--soft);
   touch-action: pan-y;
 }
 
@@ -11,20 +11,31 @@
 }
 
 .slide {
+  position: relative;
   grid-area: 1 / 1;
-  transition: transform 0.6s ease;
+  opacity: 0;
+  transition: opacity 0.7s ease;
 }
 
 .current {
-  transform: translateX(0);
+  z-index: 1;
+  opacity: 1;
 }
 
-.before {
-  transform: translateX(-100%);
-}
-
+.before,
 .after {
-  transform: translateX(100%);
+  opacity: 0;
+}
+
+.slideHit {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+.slideHit:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: -4px;
 }
 
 .still {
@@ -32,16 +43,25 @@
 }
 
 .slideLink {
+  position: relative;
   display: block;
+  overflow: hidden;
   width: 100%;
-  /* The screen's height less the header and menu; the banner fits inside rather than being cropped (art.module.css). */
-  max-height: calc(100svh - 7.5rem);
+  background: linear-gradient(120deg, #f5f8ff, #dfe9fb);
+  /* Phones crop to the banner's left, where its headline and button sit; wider screens show it whole. */
   aspect-ratio: 16 / 9;
 }
 
-.slideLink:focus-visible {
-  outline: 2px solid var(--taupe);
-  outline-offset: -4px;
+@media (min-width: 560px) {
+  .slideLink {
+    aspect-ratio: 2 / 1;
+  }
+}
+
+@media (min-width: 900px) {
+  .slideLink {
+    aspect-ratio: 1520 / 500;
+  }
 }
 
 .hidden {
@@ -55,6 +75,7 @@
 
 .arrow {
   position: absolute;
+  z-index: 3;
   top: 50%;
   display: none;
   width: 44px;
@@ -62,17 +83,19 @@
   align-items: center;
   justify-content: center;
   padding: 0;
-  border: 1px solid rgb(179 165 147 / 60%);
+  border: 0;
   border-radius: 999px;
-  background: rgb(0 0 0 / 25%);
-  color: #fff;
+  background: rgb(255 255 255 / 92%);
+  box-shadow: 0 8px 20px -8px rgb(11 31 77 / 45%);
+  color: var(--navy);
   cursor: pointer;
   transform: translateY(-50%);
-  backdrop-filter: blur(4px);
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .arrow:hover {
-  background: rgb(0 0 0 / 45%);
+  background: var(--blue);
+  color: #fff;
 }
 
 .arrow svg {
@@ -95,6 +118,7 @@
 
 .dots {
   position: absolute;
+  z-index: 3;
   bottom: 4px;
   left: 50%;
   display: flex;
@@ -118,21 +142,22 @@
   width: 12px;
   height: 6px;
   border-radius: 999px;
-  background: rgb(255 255 255 / 60%);
+  background: rgb(11 31 77 / 25%);
   content: '';
 }
 
 .dot:hover::before {
-  background: #fff;
+  background: rgb(11 31 77 / 50%);
 }
 
 .dotOn::before {
-  width: 32px;
-  background: var(--taupe);
+  width: 28px;
+  background: var(--orange);
 }
 
 .toggle {
   position: absolute;
+  z-index: 3;
   bottom: 4px;
   left: 12px;
   display: flex;
@@ -141,15 +166,15 @@
   align-items: center;
   justify-content: center;
   padding: 0;
-  border: 1px solid rgb(179 165 147 / 60%);
+  border: 0;
   border-radius: 999px;
-  background: rgb(0 0 0 / 25%);
-  color: #fff;
+  background: rgb(255 255 255 / 85%);
+  color: var(--navy);
   cursor: pointer;
 }
 
 .toggle:hover {
-  background: rgb(0 0 0 / 45%);
+  background: #fff;
 }
 
 .toggle svg {
@@ -164,7 +189,7 @@
 .arrow:focus-visible,
 .toggle:focus-visible,
 .dot:focus-visible {
-  outline: 2px solid var(--taupe);
+  outline: 2px solid var(--focus);
   outline-offset: 2px;
 }
 

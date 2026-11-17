@@ -1,70 +1,84 @@
 {
-  "title": "Shop our collections",
+  "title": "Everything Electronics for a Brighter Tomorrow",
   "hero": {
-    "region": "Featured collections",
+    "region": "Featured offers",
     "role": "carousel",
     "previous": "Previous slide",
     "next": "Next slide",
     "pause": "Pause the slides",
     "play": "Play the slides",
     "goTo": "Go to slide {n}",
-    "first": "Our latest collection, shop now",
-    "second": "Shop the collection",
-    "third": "Explore more of the shop"
+    "welcome": "Everything electronics for a brighter tomorrow: secure checkout, curated collections and worldwide shipping. Shop now",
+    "mobiles": "Mobiles, shop the collection",
+    "cameras": "Discover the world with professional cameras for every moment. Shop cameras",
+    "fashion": "Explore the latest fashion trends. Shop now",
+    "accessories": "Accessories for every device. Shop now"
   },
-  "newest": "New Arrivals",
-  "newestEmpty": "New arrivals are on their way. Check back soon.",
-  "featured": "Featured Products",
-  "viewAll": "View all products",
-  "promises": {
-    "title": "Why shop with us",
-    "craft": {
-      "title": "Chosen with Care",
-      "body": "Every piece is picked for its quality and finish"
-    },
-    "stage": {
-      "title": "For Every Occasion",
-      "body": "Something for everyday wear and special days alike"
-    },
+  "trust": {
+    "title": "Shopping with confidence",
     "secure": {
       "title": "Secure Checkout",
-      "body": "Pay safely through trusted payment partners"
+      "body": "Pay safely through trusted partners"
     },
-    "support": {
-      "title": "Here to Help",
-      "body": "Questions about an order? Get in touch with us"
+    "curated": {
+      "title": "Curated Collections",
+      "body": "Tech picked for quality and value"
+    },
+    "delivery": {
+      "title": "Free & Fast Delivery",
+      "body": "Quick delivery to your doorstep"
+    },
+    "replace": {
+      "title": "Easy Replacement",
+      "body": "Hassle-free 7 day replacement"
     }
   },
-  "collections": {
-    "eyebrow": "Shop by Category",
-    "title": "Explore Our Collections",
-    "explore": "Explore"
+  "categories": {
+    "title": "Shop by Category",
+    "shop": "Shop now"
   },
-  "deals": {
-    "eyebrow": "Handpicked for you"
+  "featured": "Featured Products",
+  "featuredEmpty": "New products are on their way. Check back soon.",
+  "viewAll": "View All",
+  "shopTitle": "Shop {name}",
+  "sections": {
+    "best": "Top Picks",
+    "mobiles": "Mobiles",
+    "cameras": "Shop Cameras",
+    "fashion": "Fashion",
+    "accessories": "Accessories"
   },
-  "spotlight": {
-    "eyebrow": "Featured Collection",
-    "body": "Discover the pieces in this collection, chosen for their quality and craft.",
-    "cta": "Shop all {name}"
-  },
-  "story": {
-    "eyebrow": "Our Story",
-    "title": "Made with care,",
-    "accent": "chosen for you.",
-    "lead": "We bring together pieces we love, chosen for their quality, their craft and the way they make you feel.",
-    "body": "Whether you are shopping for yourself or for someone special, every item in our collection is picked to look as good as it feels.",
-    "more": "Explore the collection"
-  },
-  "range": {
-    "eyebrow": "Explore the Range",
-    "title": "Find Exactly What You Need",
-    "shopAll": "Shop all {name}"
+  "why": {
+    "eyebrow": "Our promise",
+    "title": "Why Shop With Us",
+    "lead": "Everything we do is built around getting you the right product, at a fair price, without the hassle.",
+    "brands": {
+      "title": "Trusted Brands",
+      "body": "Headphones, cameras, wearables and accessories chosen for quality and performance."
+    },
+    "delivery": {
+      "title": "Free Delivery Across India",
+      "body": "Your order is packed with care and delivered quickly to your doorstep."
+    },
+    "secure": {
+      "title": "Secure Payments",
+      "body": "Check out with confidence through trusted, encrypted payment partners."
+    },
+    "support": {
+      "title": "Real Human Support",
+      "body": "Questions before or after you buy? Our team is here to help, 10AM to 7PM."
+    }
   },
   "signup": {
-    "eyebrow": "Join us",
-    "title": "Shop faster with an account",
-    "body": "Create an account for faster checkout, order tracking and saved addresses.",
-    "action": "Create Account"
+    "title": "Shop faster with a free account",
+    "body": "Faster checkout, order tracking, saved addresses and your wishlist in one place.",
+    "action": "Create Account",
+    "browse": "Browse All Products"
+  },
+  "explore": {
+    "title": "Explore more {name}",
+    "body": "New products are added regularly. Browse the full range to find the right fit for you.",
+    "collection": "View collection",
+    "all": "All products"
   }
 }

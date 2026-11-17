@@ -45,7 +45,15 @@
     "title": "Our policies",
     "lead": "The terms that apply when you shop with us.",
     "legal": "Legal notice",
-    "ask": "Questions about this policy? Get in touch and we will answer."
+    "ask": "Questions about this policy? Get in touch and we will answer.",
+    "onPage": "On this page",
+    "related": "Also in About Us",
+    "breadcrumb": "Breadcrumb",
+    "help": {
+      "title": "Still have questions?",
+      "body": "Our customer support team is here to help with orders, deliveries, returns and anything else about this policy.",
+      "action": "Contact Us"
+    }
   },
   "notFound": {
     "title": "We can’t find that page",
@@ -58,39 +66,82 @@
     "lead": "The shop is closed for now. Please come back later."
   },
   "about": {
-    "eyebrow": "Our Story",
-    "title": "About {store}",
-    "lead": "Welcome to {store}. Here is a little about who we are and what we do.",
-    "story": {
+    "eyebrow": "About {store}",
+    "title": "Technology That Connects You to a Better Tomorrow",
+    "lead": "Discover quality electronics, innovative gadgets and accessories at {store}.",
+    "explore": "Explore Our Products",
+    "who": {
       "eyebrow": "Who we are",
-      "title": "A shop built on",
-      "accent": "care and quality",
-      "first": "We started {store} to bring together pieces we love and believe in. Every item in our shop is chosen with care, so you can shop with confidence.",
-      "second": "We are always adding to our collections, and we are glad to hear what you would like to see next. Thank you for shopping with us."
+      "title": "Your online destination for electronics",
+      "first": "{store} is an online store for electronics, gadgets and digital lifestyle products. We bring cameras, accessories, fashion and everyday tech together in one place, so you can find what you need without searching across many shops.",
+      "second": "Every product in our store is selected with care and described clearly, so you can compare options and order with confidence from wherever you are.",
+      "shop": "Shop our departments"
     },
-    "promise": {
-      "eyebrow": "Our Promise",
-      "title": "More than just products",
-      "body": "We want every order to be a pleasure, from the moment you browse to the moment it arrives.",
-      "designs": {
-        "title": "Thoughtful Choices",
-        "body": "Pieces picked for their design and the way they are made."
+    "mission": {
+      "title": "Our Mission",
+      "body": "To make technology accessible to everyone through carefully curated products, convenient online shopping and service that puts our customers first."
+    },
+    "vision": {
+      "title": "Our Vision",
+      "body": "To build a trusted destination for electronics and digital lifestyle products, where customers return because shopping with us is simple, clear and dependable."
+    },
+    "why": {
+      "eyebrow": "Why choose us",
+      "title": "Why shop with {store}",
+      "body": "Everything we do is designed to make buying electronics online easier.",
+      "curated": {
+        "title": "Curated Electronics",
+        "body": "A thoughtfully selected range of gadgets and accessories, chosen for usefulness and quality."
       },
-      "quality": {
-        "title": "Lasting Quality",
-        "body": "Made to be used, enjoyed and kept."
+      "convenient": {
+        "title": "Convenient Shopping",
+        "body": "Browse by department, search instantly, save favourites to your wishlist and order from home."
       },
-      "service": {
-        "title": "Friendly Service",
-        "body": "Real people ready to help with your order."
+      "secure": {
+        "title": "Secure Checkout",
+        "body": "Pay through the options offered at checkout, processed by established payment providers."
+      },
+      "support": {
+        "title": "Customer-Focused Support",
+        "body": "Real people ready to help with product questions, orders and after-sales queries."
+      },
+      "variety": {
+        "title": "Product Variety",
+        "body": "Cameras, accessories, fashion and more, with new products added to our collections over time."
+      },
+      "assistance": {
+        "title": "Reliable Order Assistance",
+        "body": "Follow your orders from your account and reach our team whenever you need an update."
       }
+    },
+    "commitment": {
+      "eyebrow": "Our commitment",
+      "title": "Built around our customers",
+      "body": "We are committed to making every visit worthwhile, from the first search to the moment your order arrives.",
+      "satisfaction": {
+        "title": "Customer satisfaction",
+        "body": "We listen to feedback and work to resolve every question or issue fairly."
+      },
+      "discovery": {
+        "title": "Easy product discovery",
+        "body": "Clear product pages, organised departments and helpful search make the right choice easier."
+      },
+      "transparency": {
+        "title": "Transparent service",
+        "body": "Clear prices at checkout and published policies, so you always know where you stand."
+      }
+    },
+    "cta": {
+      "title": "Ready to find your next gadget?",
+      "body": "Browse our collections or talk to our team. We are happy to help.",
+      "collections": "Explore Our Collections",
+      "contact": "Contact Us"
     },
     "visit": {
       "title": "Visit Our Store",
       "lead": "Come see the collection in person.",
       "whatsapp": "Chat on WhatsApp"
-    },
-    "closing": "Thank you for choosing {store}."
+    }
   },
   "contact": {
     "title": "Get in touch",
@@ -123,5 +174,37 @@
     "by": "by {author}",
     "tags": "Tags",
     "olderFailed": "We couldn't load older posts. Try again."
+  },
+  "bulk": {
+    "title": "Bulk Buy",
+    "lead": "Buying for your office, team, school or an event? Tell us what you need and we will put together a quote for your bulk order.",
+    "share": {
+      "title": "Share your requirement",
+      "body": "Let us know the products, quantities and where they need to be delivered."
+    },
+    "quote": {
+      "title": "Get your quote",
+      "body": "Our team checks availability and comes back to you with a quote for the full order."
+    },
+    "deliver": {
+      "title": "Confirm and receive",
+      "body": "Once you confirm, we pack your order with care and arrange delivery."
+    },
+    "reach": {
+      "title": "Talk to our bulk orders team",
+      "body": "Call or write to us with your requirement and we will get back to you.",
+      "action": "Send an enquiry",
+      "browse": "Browse products"
+    }
+  },
+  "reviews": {
+    "title": "Customer Reviews",
+    "lead": "Your feedback helps us choose better products and serve you better.",
+    "share": {
+      "title": "Bought from us recently?",
+      "body": "We would love to hear how it went. Tell us about the product, the delivery and your experience with our team.",
+      "action": "Share your feedback",
+      "orders": "View my orders"
+    }
   }
 }

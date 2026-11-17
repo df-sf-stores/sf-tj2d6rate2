@@ -1,0 +1,787 @@
+/* All Products, collections and search results: a wide page, a filter sidebar (a drawer on phones), a toolbar and the grid. */
+
+.page {
+  display: flex;
+  box-sizing: border-box;
+  width: min(100%, 1440px);
+  flex-direction: column;
+  gap: 18px;
+  margin-inline: auto;
+  padding: 18px 16px 40px;
+}
+
+.crumbs {
+  display: block;
+  font-size: 13px;
+  --df-sealed-size: 13px;
+  --df-sealed-color: var(--muted);
+}
+
+.crumbs::part(link) {
+  color: var(--ink-soft);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 22px 20px;
+  border: 1px solid #dbe6fb;
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 100% 0%, rgb(33 97 245 / 12%), transparent 45%),
+    #eef4ff;
+}
+
+.title {
+  margin: 0;
+  color: var(--navy);
+  font-family: var(--heading-font);
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+}
+
+.lead {
+  max-width: 70ch;
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* Sidebar and results */
+
+.listing {
+  display: grid;
+  align-items: start;
+  gap: 24px;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.results {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* On phones the sidebar is a drawer from the left, shown by the Filters button. */
+.sidebar {
+  display: none;
+}
+
+.sidebarOpen {
+  position: fixed;
+  z-index: 95;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  width: min(88vw, 380px);
+  box-sizing: border-box;
+  flex-direction: column;
+  background: var(--surface);
+  box-shadow: 0 0 40px rgb(16 35 74 / 35%);
+  animation: slide-in 0.25s ease;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+.backdrop {
+  position: fixed;
+  z-index: 90;
+  inset: 0;
+  padding: 0;
+  border: 0;
+  background: rgb(16 35 74 / 45%);
+  cursor: pointer;
+}
+
+.drawerHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.drawerTitle {
+  margin: 0;
+  color: var(--navy);
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.close {
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.close .chipIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.sideHead {
+  display: none;
+}
+
+.sideTitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  color: var(--navy);
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.sideTitle svg,
+.filterButton svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentcolor;
+  stroke-linecap: round;
+  stroke-width: 2;
+}
+
+.groups {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  overflow-y: auto;
+  padding: 0 18px;
+}
+
+.drawerFoot {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+  padding: 14px 18px;
+  border-top: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.drawerClear,
+.drawerApply {
+  min-height: 48px;
+  padding: 0 14px;
+  border: 1.5px solid var(--blue);
+  border-radius: var(--button-radius);
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.drawerClear {
+  background: var(--surface);
+  color: var(--blue);
+}
+
+.drawerClear:disabled {
+  border-color: var(--line);
+  color: var(--muted);
+  cursor: default;
+}
+
+.drawerApply {
+  background: var(--blue);
+  color: #fff;
+}
+
+/* Filter groups */
+
+.group {
+  border-bottom: 1px solid var(--line);
+}
+
+.group:last-child {
+  border-bottom: 0;
+}
+
+.groupHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 16px 0;
+  color: var(--navy);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  list-style: none;
+}
+
+.chevron {
+  width: 18px;
+  height: 18px;
+  flex: none;
+  fill: none;
+  stroke: var(--muted);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+  transition: transform 0.2s ease;
+}
+
+.group[open] .chevron {
+  transform: rotate(180deg);
+}
+
+.groupBody {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-bottom: 18px;
+}
+
+.options {
+  display: flex;
+  max-height: 260px;
+  flex-direction: column;
+  gap: 2px;
+  overflow-y: auto;
+}
+
+.check,
+.choice {
+  display: flex;
+  min-height: 38px;
+  box-sizing: border-box;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 8px;
+  border-radius: 8px;
+  color: var(--ink-soft);
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.check:hover,
+.choice:hover {
+  background-color: var(--soft);
+}
+
+.check input,
+.choice input {
+  width: 17px;
+  height: 17px;
+  flex: none;
+  margin: 0;
+  accent-color: var(--blue);
+}
+
+.choiceOn {
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.optionName {
+  min-width: 0;
+  flex: 1;
+  overflow-wrap: anywhere;
+}
+
+.optionCount {
+  min-width: 24px;
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: #f1f4f9;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.choices {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.choices legend {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.quiet {
+  margin: 0;
+  padding: 4px 8px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.categories {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.category {
+  display: flex;
+  min-height: 38px;
+  box-sizing: border-box;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 10px;
+  border-radius: 8px;
+  color: var(--ink-soft);
+  font-size: 14px;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.category::before {
+  width: 8px;
+  height: 8px;
+  flex: none;
+  border: 2px solid #b9c6dd;
+  border-radius: 50%;
+  content: '';
+}
+
+.category:hover {
+  background-color: var(--soft);
+  color: var(--blue);
+}
+
+.categoryCurrent {
+  background-color: var(--soft);
+  color: var(--blue);
+  font-weight: 800;
+}
+
+.categoryCurrent::before {
+  border-color: var(--blue);
+  background: var(--blue);
+}
+
+/* Price */
+
+.priceEnds {
+  display: none;
+}
+
+.priceInputs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.priceFields {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.field {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 4px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.field input {
+  width: 100%;
+  min-height: 40px;
+  box-sizing: border-box;
+  padding: 0 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--button-radius);
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.field input:focus-visible {
+  border-color: var(--blue);
+  outline: 2px solid rgb(33 97 245 / 25%);
+}
+
+.priceActions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.apply {
+  min-height: 38px;
+  flex: 1;
+  padding: 0 16px;
+  border: 0;
+  border-radius: var(--button-radius);
+  background: var(--navy);
+  color: #fff;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.apply:hover {
+  background-color: var(--blue);
+}
+
+.error {
+  margin: 0;
+  color: var(--danger);
+  font-size: 13px;
+}
+
+.textButton {
+  padding: 4px 0;
+  border: 0;
+  background: none;
+  color: var(--blue);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Toolbar */
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+}
+
+.summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.count {
+  margin: 0;
+  color: var(--navy);
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.activeCount {
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--soft);
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.tools {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 8px;
+}
+
+.filterButton {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  gap: 8px;
+  padding: 0 14px;
+  border: 1.5px solid var(--navy);
+  border-radius: var(--button-radius);
+  background: var(--surface);
+  color: var(--navy);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.badge {
+  display: inline-flex;
+  min-width: 20px;
+  height: 20px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6px;
+  box-sizing: border-box;
+  border-radius: 999px;
+  background: var(--orange);
+  color: #fff;
+  font-size: 12px;
+}
+
+.sort {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.sort select {
+  width: 100%;
+  min-width: 0;
+  min-height: 40px;
+  padding: 0 32px 0 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--button-radius);
+  background-color: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* On a phone the sort's label is only for screen readers, so the dropdown has room. */
+.sort label {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.views {
+  display: inline-flex;
+  padding: 3px;
+  border: 1px solid var(--line);
+  border-radius: var(--button-radius);
+  background: #f5f8fd;
+}
+
+.view {
+  display: inline-flex;
+  width: 36px;
+  height: 34px;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.view svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentcolor;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.viewOn {
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  color: var(--blue);
+}
+
+/* Chosen filters */
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.chip {
+  display: inline-flex;
+  min-height: 34px;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
+  border: 1px solid #c9d8f8;
+  border-radius: 999px;
+  background: var(--soft);
+  color: var(--navy);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.chip:hover {
+  border-color: var(--blue);
+  background-color: #e2ecff;
+}
+
+.chipIcon {
+  width: 12px;
+  height: 12px;
+  fill: none;
+  stroke: currentcolor;
+  stroke-linecap: round;
+  stroke-width: 2;
+}
+
+.clearAll {
+  padding: 4px 6px;
+  border: 0;
+  background: none;
+  color: var(--orange-deep);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.close:focus-visible,
+.drawerClear:focus-visible,
+.drawerApply:focus-visible,
+.groupHead:focus-visible,
+.category:focus-visible,
+.apply:focus-visible,
+.textButton:focus-visible,
+.filterButton:focus-visible,
+.sort select:focus-visible,
+.view:focus-visible,
+.chip:focus-visible,
+.clearAll:focus-visible,
+.check input:focus-visible,
+.choice input:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+@media (min-width: 640px) {
+  .header {
+    padding: 28px 30px;
+  }
+
+  .title {
+    font-size: 34px;
+  }
+
+  .toolbar {
+    padding: 10px 14px;
+  }
+
+  .tools {
+    width: auto;
+  }
+
+  .sort {
+    flex: none;
+  }
+
+  .sort label {
+    position: static;
+    overflow: visible;
+    width: auto;
+    height: auto;
+    clip-path: none;
+  }
+
+  .sort select {
+    width: auto;
+  }
+}
+
+/* From tablets in landscape up, the sidebar sits beside the products and follows them down the page. */
+@media (min-width: 1024px) {
+  .page {
+    padding: 22px 32px 56px;
+  }
+
+  .listing {
+    gap: 28px;
+    grid-template-columns: 272px minmax(0, 1fr);
+  }
+
+  .sidebar,
+  .sidebarOpen {
+    position: sticky;
+    z-index: auto;
+    top: 146px;
+    display: flex;
+    width: auto;
+    max-height: calc(100vh - 166px);
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--surface);
+    box-shadow: var(--shadow-sm);
+    animation: none;
+  }
+
+  .backdrop,
+  .drawerHead,
+  .drawerFoot,
+  .filterButton {
+    display: none;
+  }
+
+  .sideHead {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 16px 18px;
+    border-bottom: 1px solid var(--line);
+    background: #f8fbff;
+  }
+}
+
+@media (min-width: 1700px) {
+  .page {
+    width: min(100%, 1600px);
+  }
+}

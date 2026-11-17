@@ -3,7 +3,8 @@ import { Layout } from '../components/Layout'
 import { ListingResults } from '../components/ListingResults'
 import { Notice } from '../components/Notice'
 import { Retry } from '../components/interactive/Retry'
-import styles from '../styles/shop.module.css'
+import shop from '../styles/shop.module.css'
+import styles from '../styles/listing.module.css'
 
 export const CollectionPage = () => {
   const { t } = useStorefront()
@@ -15,7 +16,7 @@ export const CollectionPage = () => {
       <section className={styles.page}>
         {page.found === 'missing' ? (
           <Notice main title={t('shop.collection.missing')} lead={t('shop.collection.missingLead')}>
-            <Link href="/collections/all/" className={styles.primary}>
+            <Link href="/collections/all/" className={shop.primary}>
               {t('shop.collection.browse')}
             </Link>
           </Notice>
@@ -26,11 +27,11 @@ export const CollectionPage = () => {
         ) : (
           <>
             <Breadcrumbs crumbs={name ? [{ label: t('shop.crumbs.home'), href: '/' }, { label: name, href: page.collection?.href ?? '/collections/all/' }] : []} t={t} className={styles.crumbs} />
-            <header className={styles.intro}>
+            <header className={styles.header}>
               <h1 className={styles.title}>{name ?? t('shop.collection.loading')}</h1>
               {lead ? <p className={styles.lead}>{lead}</p> : null}
             </header>
-            <ListingResults listing={page} />
+            <ListingResults listing={page} browse />
           </>
         )}
       </section>

@@ -5,8 +5,12 @@
   "card": {
     "from": "From",
     "soldOut": "Sold out",
-    "noPicture": "No picture yet",
-    "view": "View details"
+    "noPicture": "Image coming soon",
+    "view": "Shop now",
+    "details": "View details",
+    "off": "{n}% OFF",
+    "inStock": "In stock",
+    "outOfStock": "Out of stock"
   },
   "listing": {
     "heading": "Products",
@@ -18,10 +22,11 @@
     "sort": "Sort",
     "sorts": {
       "featured": "Featured",
-      "newest": "Newest",
-      "priceLow": "Price, low to high",
-      "priceHigh": "Price, high to low",
-      "name": "Name"
+      "newest": "Newest First",
+      "priceLow": "Price: Low to High",
+      "priceHigh": "Price: High to Low",
+      "name": "Name: A to Z",
+      "nameDesc": "Name: Z to A"
     },
     "price": "Price",
     "loadingMore": "Loading more products…",
@@ -34,8 +39,8 @@
     "retry": "Try again"
   },
   "collection": {
-    "all": "All products",
-    "allLead": "Everything in the shop.",
+    "all": "All Products",
+    "allLead": "Discover the latest electronics, gadgets, cameras, fashion and accessories.",
     "loading": "Loading the collection",
     "missing": "We can't find that collection",
     "missingLead": "It may have moved or been taken down.",
@@ -295,5 +300,40 @@
     "view": "View product",
     "remove": "Remove",
     "removeLabel": "Remove {name} from your wishlist"
+  },
+  "filters": {
+    "title": "Filters",
+    "close": "Close filters",
+    "clearAll": "Clear All",
+    "category": "Category",
+    "allProducts": "All Products",
+    "price": "Price Range",
+    "min": "Min (₹)",
+    "max": "Max (₹)",
+    "apply": "Apply",
+    "clearPrice": "Clear price",
+    "priceInvalid": "The minimum must be lower than the maximum.",
+    "priceBetween": "₹{min} – ₹{max}",
+    "priceFrom": "From ₹{min}",
+    "priceUpTo": "Up to ₹{max}",
+    "availability": "Availability",
+    "anyStock": "All products",
+    "inStock": "In stock",
+    "outOfStock": "Out of stock",
+    "discount": "Discount",
+    "anyDiscount": "Any discount",
+    "searchIn": "Search {name}",
+    "noMatch": "Nothing matches that search.",
+    "count": "{count, plural, one {# product} other {# products}}",
+    "countMore": "{count}+ products",
+    "active": "{count, plural, one {# filter applied} other {# filters applied}}",
+    "show": "{count, plural, one {Show # product} other {Show # products}}",
+    "view": "Layout",
+    "grid": "Grid view",
+    "list": "List view",
+    "off10": "10% and above",
+    "off20": "20% and above",
+    "off30": "30% and above",
+    "off50": "50% and above"
   }
 }

@@ -1,0 +1,199 @@
+/* Bulk Buy and Customer Reviews */
+
+.page {
+  display: flex;
+  box-sizing: border-box;
+  width: min(100%, 1040px);
+  flex-direction: column;
+  gap: 28px;
+  margin-inline: auto;
+  padding: 40px 16px 56px;
+}
+
+.steps {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: minmax(0, 1fr);
+  margin: 0;
+  padding: 0;
+  counter-reset: step;
+  list-style: none;
+}
+
+.step {
+  counter-increment: step;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.stepNumber {
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--blue-bright), var(--blue));
+  color: #fff;
+  font-weight: 800;
+}
+
+.stepNumber::before {
+  content: counter(step);
+}
+
+.stepTitle {
+  margin: 6px 0 0;
+  color: var(--navy);
+  font-family: var(--heading-font);
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.stepBody {
+  margin: 0;
+  color: var(--muted);
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 28px 24px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: linear-gradient(160deg, #f5f9ff, #e8f0fe);
+}
+
+.panelIcon {
+  display: inline-flex;
+  width: 52px;
+  height: 52px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--orange), #ff9a4d);
+  color: #fff;
+}
+
+.panelIcon svg {
+  width: 26px;
+  height: 26px;
+  fill: none;
+  stroke: currentcolor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.panelCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.panelTitle {
+  margin: 0;
+  color: var(--navy);
+  font-family: var(--heading-font);
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.panelBody {
+  max-width: 60ch;
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 32px;
+  margin: 0;
+}
+
+.detail {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.term {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.value {
+  margin: 0;
+  color: var(--navy);
+  font-size: 16px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.primary,
+.secondary {
+  display: inline-flex;
+  min-height: 48px;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  padding: 0 24px;
+  border: 1.5px solid var(--blue);
+  border-radius: var(--button-radius);
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.primary {
+  background: var(--blue);
+  color: #fff;
+}
+
+.primary:hover {
+  border-color: var(--navy);
+  background-color: var(--navy);
+}
+
+.secondary {
+  background: #fff;
+  color: var(--blue);
+}
+
+.secondary:hover {
+  background-color: var(--soft);
+}
+
+.primary:focus-visible,
+.secondary:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+@media (min-width: 768px) {
+  .steps {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .panel {
+    padding: 36px;
+  }
+}

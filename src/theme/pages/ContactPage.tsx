@@ -12,7 +12,7 @@ export const ContactPage = () => {
       <header className={policy.band}>
         <h1 className={policy.title}>{t('pages.contact.title')}</h1>
         <span className={policy.rule} />
-        <p className={styles.lead}>{t('pages.contact.lead')}</p>
+        <p className={policy.bandLead}>{t('pages.contact.lead')}</p>
       </header>
       <section className={about.visit}>
         <div className={about.visitCard}>

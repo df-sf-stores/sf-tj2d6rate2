@@ -1,9 +1,8 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { Link, useReducedMotion } from '@dripfunnel/storefront-core/theme'
 import { cx } from '../cx'
-import art from '../../styles/art.module.css'
 import styles from '../../styles/hero.module.css'
 
 const autoplayMs = 4500
@@ -14,8 +13,8 @@ export type HeroSlide = {
   href: string
   /** What the artwork says, for screen readers: the banner's words are part of the picture. */
   label: string
-  /** The class that paints this slide's banner (art.module.css), over a gradient while it loads. */
-  art: string | undefined
+  /** The slide's banner, a ThemeImage that fills the slide. */
+  picture: ReactNode
 }
 
 type HeroLabels = { region: string; role: string; previous: string; next: string; pause: string; play: string; goTo: (n: number) => string }
@@ -30,7 +29,7 @@ export const HeroCarousel = ({ slides, labels }: { slides: HeroSlide[]; labels: 
   // WCAG 2.2.2: no autoplay under reduced motion, and a pause button otherwise.
   const autoplay = count > 1 && !reduced && !stopped
   const go = (index: number) => setSelected((index + count) % count)
-  // Slides before the current one wait off to the left, those after it off to the right.
+  // The shown slide fades in over the others, which stay in place so their banners load.
   const place = (index: number) => (index === selected ? styles.current : index < selected ? styles.before : styles.after)
 
   // One timer per slide: keying on `selected` gives every slide the full interval after any change.
@@ -66,14 +65,15 @@ export const HeroCarousel = ({ slides, labels }: { slides: HeroSlide[]; labels: 
       <div className={styles.track} aria-live={autoplay ? 'off' : 'polite'}>
         {slides.map((slide, index) => (
           <div key={slide.key} className={cx(styles.slide, place(index), reduced && styles.still)}>
-            {/* Only the shown slide is a link, so off-screen ones are neither tabbed to nor read out. */}
+            {/* The picture stays mounted; only the shown slide carries a link, so hidden ones are neither tabbed to nor read out. */}
+            <span className={styles.slideLink} aria-hidden="true">
+              {slide.picture}
+            </span>
             {index === selected ? (
-              <Link href={slide.href} className={cx(styles.slideLink, art.art, slide.art)}>
+              <Link href={slide.href} className={styles.slideHit}>
                 <span className={styles.hidden}>{slide.label}</span>
               </Link>
-            ) : (
-              <span className={cx(styles.slideLink, art.art, slide.art)} aria-hidden="true" />
-            )}
+            ) : null}
           </div>
         ))}
       </div>

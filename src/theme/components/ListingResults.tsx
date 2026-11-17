@@ -1,43 +1,8 @@
-import { Link, useStorefront, type Listing } from '@dripfunnel/storefront-core/theme'
-import { FilterPanel, ListingBar, MoreOnScroll } from './interactive/Filters'
-import { Retry } from './interactive/Retry'
-import { Notice } from './Notice'
-import { GridPlaceholder, ProductGrid } from './ProductCard'
-import styles from '../styles/shop.module.css'
+import type { Listing } from '@dripfunnel/storefront-core/theme'
+import { ShopListing } from './interactive/Filters'
 
-/** A collection's or a search's products: filters, sort, the grid and its states, and more loading on scroll. */
-export const ListingResults = ({ listing }: { listing: Listing }) => {
-  const { t } = useStorefront()
-  return (
-    <div className={listing.facets.length || listing.priceBounds ? styles.listingFiltered : styles.listing}>
-      <FilterPanel listing={listing} />
-      <div className={styles.results}>
-        <h2 className={styles.hiddenHeading}>{t('shop.listing.heading')}</h2>
-        {listing.status === 'ready' ? (
-          <ListingBar listing={listing} />
-        ) : null}
-        {listing.status === 'loading' ? <GridPlaceholder label={t('shop.listing.loading')} count={6} /> : null}
-        {listing.status === 'error' ? (
-          <Notice title={t('shop.listing.failed')} lead={t('shop.listing.failedLead')}>
-            <Retry label={t('shop.listing.retry')} onRetry={listing.retry} />
-          </Notice>
-        ) : null}
-        {listing.status === 'ready' && listing.items.length === 0 ? (
-          listing.selected.length ? (
-            <Notice title={t('shop.listing.empty')} lead={t('shop.listing.emptyLead')}>
-              <Retry label={t('shop.listing.clear')} onRetry={listing.clear} />
-            </Notice>
-          ) : (
-            <Notice title={t('shop.collection.empty')} lead={t('shop.collection.emptyLead')}>
-              <Link href="/" className={styles.secondary}>
-                {t('shop.collection.home')}
-              </Link>
-            </Notice>
-          )
-        ) : null}
-        {listing.status === 'ready' ? <ProductGrid products={listing.items} /> : null}
-        <MoreOnScroll listing={listing} />
-      </div>
-    </div>
-  )
-}
+/**
+ * A collection's or a search's products: filters, sort, view, the grid and its states.
+ * `browse` adds the collections as a Category filter, which only a collection page has.
+ */
+export const ListingResults = ({ listing, browse = false }: { listing: Listing; browse?: boolean }) => <ShopListing listing={listing} browse={browse} />
