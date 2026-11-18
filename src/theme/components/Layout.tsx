@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { ConsentBanner, Link, navigate, PoweredBy, PreviewBanner, SearchField, StoreLogo, useCart, useCollections, useMenu, useStorefront, useWishlist } from '@dripfunnel/storefront-core/theme'
+import { ConsentBanner, Link, navigate, PoweredBy, PreviewBanner, SearchField, StoreLogo, ThemeImage, useCart, useCollections, useMenu, useStorefront, useWishlist } from '@dripfunnel/storefront-core/theme'
 import { Menu } from './interactive/Menu'
 import { NavItem } from './interactive/NavItem'
 import { aboutHref, useAboutPages } from './aboutPages'
@@ -292,7 +292,15 @@ export const Layout = ({ children }: { children: ReactNode }) => {
         <div className={styles.base}>
           <div className={styles.baseInner}>
             <p className={styles.copyright}>{t('common.footer.rights', { store: store.name })}</p>
-            <PoweredBy brand={poweredBy} t={t} className={styles.powered} />
+            <div className={styles.attribution}>
+              <PoweredBy brand={poweredBy} t={t} className={styles.powered} />
+              <Link href={t('common.footer.dripfunnelUrl')} className={styles.dripfunnel}>
+                <span className={styles.dripfunnelLabel}>{t('common.footer.poweredBy')}</span>
+                <span className={styles.dripfunnelBadge}>
+                  <ThemeImage src="dripfunnel-logo.png" alt={t('common.footer.dripfunnelAlt')} ratio={845 / 143} sizes="120px" className={styles.dripfunnelLogo} />
+                </span>
+              </Link>
+            </div>
           </div>
         </div>
       </footer>

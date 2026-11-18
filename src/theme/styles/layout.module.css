@@ -799,6 +799,82 @@
   font-weight: 500;
 }
 
+.attribution {
+  display: flex;
+  min-width: 0;
+  max-width: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px 16px;
+}
+
+.dripfunnel {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: rgb(255 255 255 / 88%);
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.dripfunnelLabel {
+  line-height: 1;
+}
+
+.dripfunnelBadge {
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.2s ease;
+}
+
+.dripfunnelLogo {
+  display: block;
+  width: 120px;
+  max-width: 100%;
+  height: auto;
+  background: transparent;
+  object-fit: contain;
+}
+
+.dripfunnel:hover {
+  color: #fff;
+}
+
+.dripfunnel:hover .dripfunnelBadge {
+  transform: translateY(-1px);
+}
+
+.dripfunnel:focus-visible {
+  border-radius: 4px;
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dripfunnel,
+  .dripfunnelBadge {
+    transition: none;
+  }
+
+  .dripfunnel:hover .dripfunnelBadge {
+    transform: none;
+  }
+}
+
+@media (min-width: 640px) {
+  .baseInner {
+    justify-content: space-between;
+  }
+
+  .attribution {
+    justify-content: flex-end;
+    margin-inline-start: auto;
+  }
+}
+
 .powered {
   display: block;
   --df-sealed-color: #fff;

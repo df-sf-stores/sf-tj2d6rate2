@@ -47,6 +47,9 @@
     "hours": "(Available 10AM to 7PM)",
     "email": "E-mail address:",
     "whatsapp": "Chat with us on WhatsApp",
-    "rights": "© 2026 {store}. All rights reserved."
+    "rights": "© 2026 {store}. All rights reserved.",
+    "poweredBy": "Powered by",
+    "dripfunnelAlt": "DripFunnel",
+    "dripfunnelUrl": "https://www.dripfunnel.com/in/"
   }
 }
